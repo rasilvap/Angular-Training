@@ -1,4 +1,4 @@
-System.register(['angular2/core', "../services/peliculas.service"], function(exports_1, context_1) {
+System.register(['angular2/core', "../services/peliculas.service", "angular2/router", "../model/SomeData"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', "../services/peliculas.service"], function(exp
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, peliculas_service_1;
+    var core_1, peliculas_service_1, router_1, SomeData_1;
     var PeliculasListComponent;
     return {
         setters:[
@@ -19,6 +19,12 @@ System.register(['angular2/core', "../services/peliculas.service"], function(exp
             },
             function (peliculas_service_1_1) {
                 peliculas_service_1 = peliculas_service_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
+            function (SomeData_1_1) {
+                SomeData_1 = SomeData_1_1;
             }],
         execute: function() {
             // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
@@ -32,8 +38,16 @@ System.register(['angular2/core', "../services/peliculas.service"], function(exp
                     //this.pelicula = new Pelicula(1,'Civil war', 'Fulano',2016);
                     this.pelicula = this.peliculas[0];
                     this.peliculaElegida = this.peliculas[0];
+                    this.price = ["1000", "2000", "3000"];
                     this.debug();
+                    this.model = new SomeData_1.SomeData(this.price);
+                    this.model = {
+                        sex: "male"
+                    };
                 }
+                PeliculasListComponent.prototype.getValue = function (price) {
+                    this.model.price = price;
+                };
                 PeliculasListComponent.prototype.debug = function (titulo) {
                     if (titulo === void 0) { titulo = null; }
                     if (titulo == null) {
@@ -54,7 +68,8 @@ System.register(['angular2/core', "../services/peliculas.service"], function(exp
                     core_1.Component({
                         selector: 'peliculas-list',
                         templateUrl: 'app/view/peliculas-list.html',
-                        providers: [peliculas_service_1.PeliculasService]
+                        providers: [peliculas_service_1.PeliculasService],
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [peliculas_service_1.PeliculasService])
                 ], PeliculasListComponent);

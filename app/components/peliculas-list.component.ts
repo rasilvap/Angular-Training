@@ -1,12 +1,15 @@
 import {Component} from 'angular2/core';
 import {Pelicula}  from '../model/pelicula';
 import {PeliculasService} from "../services/peliculas.service";
+import {ROUTER_DIRECTIVES, RouteConfig, Router} from "angular2/router";
+import {SomeData} from "../model/SomeData";
 
 // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
 @Component({
     selector: 'peliculas-list',
     templateUrl: 'app/view/peliculas-list.html',
-    providers:[PeliculasService]
+    providers:[PeliculasService],
+    directives: [ROUTER_DIRECTIVES]
 })
 
 // Clase del componente donde iran los datos y funcionalidades
@@ -17,6 +20,9 @@ export class PeliculasListComponent {
   public peliculas:Array<Pelicula>;
   //public peliculas;
   public datoServicio;
+  public price:string[];
+  public modelo:SomeData;
+  model;
 
   constructor(private PeliculasService:PeliculasService){
     this.momstrarDatos=false;
@@ -26,7 +32,16 @@ export class PeliculasListComponent {
     //this.pelicula = new Pelicula(1,'Civil war', 'Fulano',2016);
     this.pelicula = this.peliculas[0];
     this.peliculaElegida= this.peliculas[0];
+    this.price = ["1000", "2000", "3000"];
     this.debug();
+    this.model = new SomeData(this.price);
+    this.model = {
+            sex: "male"
+        };
+  }
+
+  getValue(price){
+    this.model.price = price;
   }
 
   debug(titulo = null){
@@ -46,4 +61,7 @@ export class PeliculasListComponent {
     this.pelicula = pelicula;
     this.peliculaElegida=pelicula;
   }
+
+
+
 }

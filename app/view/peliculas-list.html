@@ -13,12 +13,27 @@
 </p>
 <hr/>
 <p>Listado de Películas:</p>
+<div>
 
+<form ngForm action="">
+		<input type="radio" [ngModel]="{checked: model.sex == 'male'}"  name="sex" value="male">Male<br>
+		<input type="radio" [ngModel]="{checked: model.sex == 'female'}"  name="sex" value="female">Female
+</form>
+
+<input type="button" value="select male" (click)="model.sex='male'">
+<input type="button" value="select female" (click)="model.sex='female'">
+<div>Selected Radio: {{model.sex}}</div>
+
+<div>{{model | json}}</div>
+</div>
 <u1>
 	<ui *ngFor="#pelicula of peliculas" style="margin-bottom :30px;">
 		<li (click)="onCambiarPelicula(pelicula)" class="pelicula-title"
-    [class.clicked] ="peliculaElegida.id === pelicula.id" >Titulo: <strong>{{pelicula.titulo}}</strong></li>
+    [class.clicked] ="peliculaElegida.titulo === pelicula.titulo" >Titulo: <strong>{{pelicula.titulo}}</strong></li>
 		<li>Director:<strong>{{pelicula.director}}</strong></li>
 		<li *ngIf="pelicula.anio">Año: <strong>{{pelicula.anio}}</strong></li>
+			<li><a [routerLink]="['CrearPeliculaBasadaEnOtra', {titulo: pelicula.titulo}]">Añadir pelicula basada en esta</a></li>
 	<ui>
+
+
 <ui>
