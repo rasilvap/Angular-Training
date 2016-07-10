@@ -20,9 +20,7 @@ export class CrearPeliculaComponent implements OnInit{
 
 	}
 
-	ngOnInit():any{
-		this.TituloPelicula = this._routeParams.get("titulo");
-	}
+
 
 	onCrearPelicula(titulo,director,anio){
 		let pelicula: Pelicula = new Pelicula(77,titulo,director,anio);
@@ -31,18 +29,18 @@ export class CrearPeliculaComponent implements OnInit{
 		console.log(pelicula);
 	}
 
-	/*onSubmit(){
+	onSubmit(){
 		this._peliculasService.insertPelicula(this.nuevaPelicula);
 		this._router.navigate(["Peliculas"]);
-	}*/
+	}
 
-/*	ngOnInit():any{
+	ngOnInit():any{
 		this.TituloPelicula = this._routeParams.get("titulo");
 		this.nuevaPelicula = new Pelicula(
 			0,
 			this._routeParams.get("titulo"),
 			this._routeParams.get("director"),
-			this._routeParams.get("anio")
+			+this._routeParams.get("anio")
 			);
-	}*/
+	}
 }

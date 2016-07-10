@@ -52,7 +52,7 @@ System.register(['angular2/core', "./components/peliculas-list.component", "./co
                     router_1.RouteConfig([
                         { path: "/peliculas", name: "Peliculas", component: peliculas_list_component_1.PeliculasListComponent, useAsDefault: true },
                         { path: "/crear-pelicula", name: "CrearPelicula", component: crear_pelicula_component_1.CrearPeliculaComponent },
-                        { path: "/crear-pelicula/:titulo", name: "CrearPeliculaBasadaEnOtra", component: crear_pelicula_component_1.CrearPeliculaComponent },
+                        { path: "/crear-pelicula/:titulo/:director/:anio", name: "CrearPeliculaBasadaEnOtra", component: crear_pelicula_component_1.CrearPeliculaComponent },
                         { path: "/contacto", name: "Contacto", component: contacto_component_1.ContactoComponent },
                     ]), 
                     __metadata('design:paramtypes', [])
