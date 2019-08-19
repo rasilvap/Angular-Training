@@ -1,5 +1,5 @@
 # cursoAngular
-Angular initials, con Bootstrap, proyecto base en el cual se trata de ir agregando funcionalidades a  media que se va coprendiendo la tecnología, inicialmente se añade un modelo de datos y una plantila html, routing básico, servicios,directivas,css.
+Angular initials, with Bootstrap, base project in which it is about accepting functionalities to the means that technology is understanding, adding a data model and an html plant, basic routing, services, directives, css.
 
 Inicio-
 
